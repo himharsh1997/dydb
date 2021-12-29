@@ -18,7 +18,7 @@ service: dydb
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
-frameworkVersion: '2'
+frameworkVersion: '>=1.21.0 <=2.70.0'
 
 provider:
   name: aws
@@ -54,20 +54,28 @@ provider:
 #    - exclude-me.js
 #    - exclude-me-dir/**
 plugins:
-  - serverless-appsync-offline
   - serverless-offline
+  - serverless-webpack
 
 custom:
   serverless-offline:
   httpPort: 4000
   accountId: 570406434983
+  webpack:
+    config: webpack.config.js
+    includeModules: false
 
 package:
   individually: true
 
 functions:
   save:
-    handler: src/functions/saveUser.handler
+    handler: src/functions/test/saveUser.handler
+    events:
+      - http:
+          path: /user/save
+          method: post
+     
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
