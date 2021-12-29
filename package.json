@@ -1,0 +1,15 @@
+{
+  "name": "dydb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Himanshu Joshi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2",
+    "typescript": "^4.5.4"
+  }
+}
